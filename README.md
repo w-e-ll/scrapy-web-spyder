@@ -15,9 +15,8 @@ To read logs after crawling, read file named log.txt in main directory.
 3. activate it (source bin/activate)
 4. git clone https://github.com/w-e-ll/scrapy-web-spyder.git
 5. cd scrapy-web-spyder
-6. cd app
-7. pip install -r requirements.txt
-8. cd /amazon
-9. scrapy crawl amazon
+6. pip install -r requirements.txt
+7. cd /amazon
+8. scrapy crawl amazon
 
 made by: https://w-e-ll.com
