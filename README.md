@@ -1,7 +1,7 @@
 # Amazon-Books-Crawler
 
 Amazon-Books-Crawler is a python web spyder developed with Scrapy framework. 
-For now, it has only one spider, it scrapes python books from  https://amazon.com search results. 
+For now, it has only one spider, it scrapes python books from  https://www.amazon.com search results. 
 This spyder extracts book title, description, paperback_price, author, star_rate, reviews, img_url, img_path and stores results in a sqlite3 database. 
 Also, data could be stored to a JSON or CSV file with a simple command -- scrapy crawl amazon - file.json. To read logs after crawling, read file named log.txt in main directory.
 
