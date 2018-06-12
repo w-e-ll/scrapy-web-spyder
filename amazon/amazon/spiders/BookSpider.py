@@ -30,17 +30,17 @@ class BookSpider(Spider):
         '=2&ie=UTF8&qid=1526225464 '
     ]
 
-    def start_requests(self):
-        yield Request(
-            'https://www.amazon.com/s/ref=sr_pg_1?rh=n%3A283155%2Cn%3A%211000%2Cn%3A5%2Cn%3A3952%2Cn%3A285856&ie=UTF8'
-            '&qid=1526340166',
-            self.parse)
+#     def start_requests(self):
+#         yield Request(
+#             'https://www.amazon.com/s/ref=sr_pg_1?rh=n%3A283155%2Cn%3A%211000%2Cn%3A5%2Cn%3A3952%2Cn%3A285856&ie=UTF8'
+#             '&qid=1526340166',
+#             self.parse)
 
-        for i in range(2, 3):
-            yield Request(
-                'https://www.amazon.com/s/ref=lp_285856_pg_2?rh=n%3A283155%2Cn%3A%211000%2Cn%3A5%2Cn%3A3952%2Cn'
-                '%3A285856&page=' + str(i) + "&ie=UTF8&qid=1526225464",
-                self.parse)
+#         for i in range(2, 3):
+#             yield Request(
+#                 'https://www.amazon.com/s/ref=lp_285856_pg_2?rh=n%3A283155%2Cn%3A%211000%2Cn%3A5%2Cn%3A3952%2Cn'
+#                 '%3A285856&page=' + str(i) + "&ie=UTF8&qid=1526225464",
+#                 self.parse)
 
     def parse(self, response):
         books = response.xpath(
@@ -52,7 +52,7 @@ class BookSpider(Spider):
         # process next page
         next_page_url = response.xpath('//span[@class="pagnLink"]/a/@href').extract_first()
         absolute_next_page_url = response.urljoin(next_page_url)
-        yield Request(absolute_next_page_url, callback=self.parse_book)
+        yield Request(absolute_next_page_url)
 
     def parse_book(self, response):
         """
