@@ -30,18 +30,6 @@ class BookSpider(Spider):
         '=2&ie=UTF8&qid=1526225464 '
     ]
 
-#     def start_requests(self):
-#         yield Request(
-#             'https://www.amazon.com/s/ref=sr_pg_1?rh=n%3A283155%2Cn%3A%211000%2Cn%3A5%2Cn%3A3952%2Cn%3A285856&ie=UTF8'
-#             '&qid=1526340166',
-#             self.parse)
-
-#         for i in range(2, 3):
-#             yield Request(
-#                 'https://www.amazon.com/s/ref=lp_285856_pg_2?rh=n%3A283155%2Cn%3A%211000%2Cn%3A5%2Cn%3A3952%2Cn'
-#                 '%3A285856&page=' + str(i) + "&ie=UTF8&qid=1526225464",
-#                 self.parse)
-
     def parse(self, response):
         books = response.xpath(
             '//a[@class="a-link-normal s-access-detail-page  s-color-twister-title-link a-text-normal"]/@href').extract()
